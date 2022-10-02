@@ -37,7 +37,6 @@ export class App extends Component {
     return (
       <Wrap>
         <Section title={`Phonebook`}>
-          {' '}
           <Formik
             initialValues={initialValues}
             onSubmit={handleSubmit}
