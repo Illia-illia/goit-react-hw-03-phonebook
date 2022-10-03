@@ -6,9 +6,27 @@ import { Wrap, FormContact, Label, Input, Button } from './App.styled';
 import { Section } from './Section/Section';
 import { ContactsList } from './ContactsList/ContactsList';
 
+const nameValidate =
+  "^[a-zA-Zа-яА-Я]+(([' -][a-zA-Zа-яА-Я ])?[a-zA-Zа-яА-Я]*)*$";
+const phoneValidate = RegExp(
+  /^\(?([0-9]{3})\)?[-. ]?([0-9]{3})[-. ]?([0-9]{4})$/
+);
+
 const schema = yup.object().shape({
-  name: yup.string().required(),
-  number: yup.number().required(),
+  name: yup
+    .string()
+    .required()
+    .matches(
+      nameValidate,
+      "Name may contain only letters, apostrophe, dash and spaces. For example Adrian, Jacob Mercer, Charles de Batz de Castelmore d'Artagnan"
+    ),
+  number: yup
+    .string()
+    .required()
+    .matches(
+      phoneValidate,
+      'Phone number must be digits and can contain spaces, dashes, parentheses and can start with +'
+    ),
 });
 
 const initialValues = {
@@ -45,22 +63,12 @@ export class App extends Component {
             <FormContact autoComplete="off">
               <Label>
                 Name
-                <Input
-                  type="text"
-                  name="name"
-                  pattern="^[a-zA-Zа-яА-Я]+(([' -][a-zA-Zа-яА-Я ])?[a-zA-Zа-яА-Я]*)*$"
-                  title="Name may contain only letters, apostrophe, dash and spaces. For example Adrian, Jacob Mercer, Charles de Batz de Castelmore d'Artagnan"
-                ></Input>
+                <Input type="text" name="name"></Input>
                 <ErrorMessage component="div" name="name" />
               </Label>
               <Label>
                 Number
-                <Input
-                  type="tel"
-                  name="number"
-                  pattern="\+?\d{1,4}?[-.\s]?\(?\d{1,3}?\)?[-.\s]?\d{1,4}[-.\s]?\d{1,4}[-.\s]?\d{1,9}"
-                  title="Phone number must be digits and can contain spaces, dashes, parentheses and can start with +"
-                ></Input>
+                <Input type="tel" name="number"></Input>
                 <ErrorMessage component="div" name="number" />
               </Label>
               <Button type="submit">Add contact</Button>
