@@ -37,19 +37,6 @@ export const Input = styled(Field)`
   }
 `;
 
-export const FindInput = styled.input`
-  all: unset;
-  display: flex;
-  border: 2px solid black;
-  margin: 10px 0;
-  padding: 15px;
-  font-size: 20px;
-  &:focus-visible {
-    border-radius: 4px;
-    border: 3px solid lightblue;
-  }
-`;
-
 export const Button = styled.button`
   display: block;
   box-shadow: inset 0px 0px 12px 3px #ffffff;

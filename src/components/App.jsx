@@ -9,9 +9,9 @@ import {
   Input,
   Button,
   ErrorText,
-  FindInput,
 } from './App.styled';
 import { Section } from './Section/Section';
+import { Filter } from './Filter/Filter';
 import { ContactsList } from './ContactsList/ContactsList';
 
 const nameValidate =
@@ -101,15 +101,7 @@ export class App extends Component {
           </Formik>
         </Section>
         <Section title={`Contacts`}>
-          <Label>
-            Find contacts by name
-            <FindInput
-              type="text"
-              name="filter"
-              value={this.filter}
-              onChange={this.filterContact}
-            />
-          </Label>
+          <Filter filter={this.filter} filterContact={this.filterContact} />
           <ContactsList contacts={this.onFiltredContacts()} />
         </Section>
       </Wrap>
