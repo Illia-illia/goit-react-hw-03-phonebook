@@ -1,5 +1,5 @@
 import styled from 'styled-components';
-import { Form, Field } from 'formik';
+import { Form, Field, ErrorMessage } from 'formik';
 
 export const Wrap = styled.div`
   margin: 16px;
@@ -13,6 +13,10 @@ export const FormContact = styled(Form)`
   margin: 0;
 `;
 
+export const ErrorText = styled(ErrorMessage)`
+  color: tomato;
+`;
+
 export const Label = styled.label`
   font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
   font-size: 20px;
@@ -21,6 +25,19 @@ export const Label = styled.label`
 `;
 
 export const Input = styled(Field)`
+  all: unset;
+  display: flex;
+  border: 2px solid black;
+  margin: 10px 0;
+  padding: 15px;
+  font-size: 20px;
+  &:focus-visible {
+    border-radius: 4px;
+    border: 3px solid lightblue;
+  }
+`;
+
+export const FindInput = styled.input`
   all: unset;
   display: flex;
   border: 2px solid black;
@@ -48,6 +65,7 @@ export const Button = styled.button`
   font-weight: bold;
   padding: 16px 37px;
   text-decoration: none;
+  margin: 10px 0;
 
   &:hover {
     background: linear-gradient(to bottom, #dfdfdf 5%, #ededed 100%);
