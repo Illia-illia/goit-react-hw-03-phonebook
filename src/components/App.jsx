@@ -1,10 +1,10 @@
 import { Component } from 'react';
 import { nanoid } from 'nanoid';
-import { Wrap } from './App.styled';
 import { Section } from './Section/Section';
 import { Filter } from './Filter/Filter';
 import { ContactsList } from './ContactsList/ContactsList';
 import { ContactForm } from './ContactForm/ContactForm';
+import { Wrap } from './App.styled';
 
 export class App extends Component {
   state = {
@@ -14,7 +14,6 @@ export class App extends Component {
       { id: 'id-3', name: 'Eden Clements', number: '645-17-79' },
       { id: 'id-4', name: 'Annie Copeland', number: '227-91-26' },
     ],
-    name: '',
     filter: '',
   };
 
@@ -28,6 +27,11 @@ export class App extends Component {
             contacts: [name, ...prevState.contacts],
           }
     );
+  };
+  onDeleteContact = id => {
+    return this.setState(prevState => ({
+      contacts: prevState.contacts.filter(contact => contact.id !== id),
+    }));
   };
 
   filterContact = e => {
@@ -53,7 +57,10 @@ export class App extends Component {
         <ContactForm handleSubmit={handleSubmit} />
         <Section title={`Contacts`}>
           <Filter filter={this.filter} filterContact={this.filterContact} />
-          <ContactsList contacts={this.onFiltredContacts()} />
+          <ContactsList
+            contacts={this.onFiltredContacts()}
+            onDeleteContact={this.onDeleteContact}
+          />
         </Section>
       </Wrap>
     );

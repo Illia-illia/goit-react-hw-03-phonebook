@@ -1,4 +1,5 @@
 import { Label, FindInput } from './Filter.styled';
+import PropTypes from 'prop-types';
 
 export const Filter = ({ filter, filterContact }) => {
   return (
@@ -12,4 +13,8 @@ export const Filter = ({ filter, filterContact }) => {
       />
     </Label>
   );
+};
+
+Label.propTypes = {
+  filter: PropTypes.string,
 };

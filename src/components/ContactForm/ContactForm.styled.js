@@ -3,7 +3,7 @@ import { Form, Field, ErrorMessage } from 'formik';
 
 export const FormContact = styled(Form)`
   border: 1px solid black;
-  width: 400px;
+  width: 450px;
   display: block;
   padding: 15px;
   margin: 0;
@@ -34,7 +34,6 @@ export const Input = styled(Field)`
 `;
 
 export const Button = styled.button`
-  display: block;
   box-shadow: inset 0px 0px 12px 3px #ffffff;
   background: linear-gradient(to bottom, #ededed 5%, #dfdfdf 100%);
   background-color: #ededed;
@@ -51,7 +50,8 @@ export const Button = styled.button`
   margin: 10px 0;
 
   &:hover {
-    background: linear-gradient(to bottom, #dfdfdf 5%, #ededed 100%);
-    background-color: #dfdfdf;
+    background: linear-gradient(to bottom, #212121 5%, #ededed 100%);
+    background-color: #212121;
+    color: #ffffff;
   }
 `;
