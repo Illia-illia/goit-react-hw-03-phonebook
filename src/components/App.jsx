@@ -45,16 +45,17 @@ export class App extends Component {
     );
   };
 
+  handleSubmit = (values, { resetForm }) => {
+    values.id = nanoid();
+    this.addContact(values);
+    resetForm();
+  };
+
   render() {
-    const handleSubmit = (values, { resetForm }) => {
-      values.id = nanoid();
-      this.addContact(values);
-      resetForm();
-    };
     return (
       <Wrap>
         <Section title={`Phonebook`}></Section>
-        <ContactForm handleSubmit={handleSubmit} />
+        <ContactForm handleSubmit={this.handleSubmit} />
         <Section title={`Contacts`}>
           <Filter filter={this.filter} filterContact={this.filterContact} />
           <ContactsList
