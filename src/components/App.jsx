@@ -51,19 +51,6 @@ export class App extends Component {
     resetForm();
   };
 
-  componentDidMount() {
-    const contactsFromLocaleStorage = JSON.parse(
-      localStorage.getItem('contacts')
-    );
-    this.setState({ contacts: contactsFromLocaleStorage });
-  }
-
-  componentDidUpdate(_, prevState) {
-    if (this.state.contacts !== prevState.contacts) {
-      localStorage.setItem('contacts', JSON.stringify(this.state.contacts));
-    }
-  }
-
   render() {
     return (
       <Wrap>
