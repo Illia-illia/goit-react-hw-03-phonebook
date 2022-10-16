@@ -33,12 +33,12 @@ export class App extends Component {
     this.setState({ filter: e.currentTarget.value });
   };
 
-  onFiltredContacts = () => {
-    const { contacts, filter } = this.state;
-    return contacts.filter(contact =>
-      contact.name.toLowerCase().includes(filter.toLowerCase())
-    );
-  };
+  // onFiltredContacts = () => {
+  //   const { contacts, filter } = this.state;
+  //   return contacts.filter(contact =>
+  //     contact.name.toLowerCase().includes(filter.toLowerCase())
+  //   );
+  // };
 
   handleSubmit = (values, { resetForm }) => {
     values.id = nanoid();
