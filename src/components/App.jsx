@@ -50,11 +50,14 @@ export class App extends Component {
     this.addContact(values);
     resetForm();
   };
+
   componentDidMount() {
     const contactsFromLocaleStorage = JSON.parse(
       localStorage.getItem('contacts')
     );
-    this.setState({ contacts: contactsFromLocaleStorage });
+    if (contactsFromLocaleStorage) {
+      this.setState({ contacts: contactsFromLocaleStorage });
+    }
   }
 
   componentDidUpdate(_, prevState) {
