@@ -64,8 +64,8 @@ export class App extends Component {
       <Wrap>
         <Section title={`Phonebook`}></Section>
         <ContactForm handleSubmit={this.handleSubmit} />
-        <Section title={`Contacts1`}>
-          <Filter filter={this.filter} filterContact={this.filterContact} />
+        <Section title={`Contacts`}>
+          {/* <Filter filter={this.filter} filterContact={this.filterContact} /> */}
           <ContactsList
             contacts={this.onFiltredContacts()}
             onDeleteContact={this.onDeleteContact}
